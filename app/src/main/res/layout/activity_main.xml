@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
         android:id="@+id/button1"
+        android:onClick="b1Click"
         android:text = "1"/>
     <Button
         android:layout_width="wrap_content"
@@ -33,12 +34,14 @@
         android:text="2"
         android:id="@+id/button2"
         android:layout_below="@+id/text"
+        android:onClick="b2Click"
         android:layout_toRightOf="@id/button1"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:layout_below="@+id/text"
+        android:onClick="b3Click"
         android:text="3"
         android:layout_toRightOf="@id/button2"/>
 

@@ -1,6 +1,7 @@
 package com.example.student2.buttons_2;
 
 import android.content.res.AssetManager;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -44,5 +45,14 @@ public class Scene {
 
             }
         }
+    }
+    public void out(TextView tw)
+    {
+        String txt = tw.getText()+"\n";
+        for(String s:text)
+        {
+            txt+=s+"\n";
+        }
+        tw.setText(txt);
     }
 }
