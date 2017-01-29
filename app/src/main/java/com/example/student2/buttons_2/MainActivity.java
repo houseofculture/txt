@@ -1,5 +1,6 @@
 package com.example.student2.buttons_2;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import java.util.LinkedList;
 public class MainActivity extends AppCompatActivity {
     static AssetManager assetManager;
     Scene curr;
-    public Player player;
+    public static Player player;
     LinkedList<Scene> scenes = new LinkedList<>();
     TextView tw;
     Button b1,b2,b3;
@@ -42,17 +43,99 @@ public class MainActivity extends AppCompatActivity {
         curr.out(tw);
         scenes.remove(0);
     }
-    public void b1Click()
+    public void b1Click(View view)
     {
+        tw.setText("");
+        String[] vars = curr.vars.getFirst().split("/");
+        if(vars[1].equals("hp"))
+        {
+            player.hp += Integer.parseInt(vars[2]);
+        }
+        if(vars[1].equals("dmg"))
+        {
+            player.dmg+=Integer.parseInt(vars[2]);
+        }
         if(scenes.getLast()!=curr) {
-            curr = scenes.get(scenes.indexOf(curr) + 1);
+            if(player.hp>0) {
+                tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
+                curr = scenes.get(scenes.indexOf(curr) + 1);
+            }
+            else
+            {
+
+                Intent i = new Intent(this,DeathActivity.class);
+                startActivity(i);
+            }
         }
         else
         {
-
+            Intent i = new Intent(this,WinActivity.class);
+            startActivity(i);
         }
-        String[] vars = curr.vars.getFirst().split("/");
-        tw.setText(vars[0]);
+        curr.out(tw);
+    }
+    public void b2Click(View view)
+    {
+        tw.setText("");
+        String[] vars = curr.vars.get(1).split("/");
+        if(vars[1].equals("hp"))
+        {
+            player.hp += Integer.parseInt(vars[2]);
+        }
+        if(vars[1].equals("dmg"))
+        {
+            player.dmg+=Integer.parseInt(vars[2]);
+        }
+        if(scenes.getLast()!=curr) {
+            if(player.hp>0) {
+                tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
+                curr = scenes.get(scenes.indexOf(curr) + 1);
+            }
+            else
+            {
 
+                Intent i = new Intent(this,DeathActivity.class);
+                startActivity(i);
+            }
+        }
+        else
+        {
+            Intent i = new Intent(this,WinActivity.class);
+            startActivity(i);
+        }
+        curr.out(tw);
+    }
+    public void b3Click(View view)
+    {
+        tw.setText("");
+        String[] vars = curr.vars.getLast().split("/");
+        if(vars[1].equals("hp"))
+        {
+            player.hp += Integer.parseInt(vars[2]);
+        }
+        if(vars[1].equals("dmg"))
+        {
+            player.dmg+=Integer.parseInt(vars[2]);
+        }
+        if(scenes.getLast()!=curr) {
+            if(player.hp>0) {
+                tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
+                curr = scenes.get(scenes.indexOf(curr) + 1);
+            }
+            else
+            {
+
+                Intent i = new Intent(this,DeathActivity.class);
+                startActivity(i);
+            }
+        }
+        else
+        {
+            TextView tt = (TextView)findViewById(R.id.tw2);
+            tt.setText(vars[0]);
+            Intent i = new Intent(this,WinActivity.class);
+            startActivity(i);
+        }
+        curr.out(tw);
     }
 }
