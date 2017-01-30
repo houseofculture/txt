@@ -13,10 +13,11 @@ public class DeathActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_death);
         TextView tv = (TextView)findViewById(R.id.tw);
-        tv.setText(tv.getText()+"\n"+"Ваши результаты:\nHP:"+MainActivity.player.hp+"\nDMG:"+MainActivity.player.dmg);
+        tv.setText(MainActivity.end+"\n"+tv.getText()+"\n"+"Ваши результаты:\nHP:"+MainActivity.player.hp+"\nDMG:"+MainActivity.player.dmg);
     }
 
     public void deathClick(View view) {
         Intent i = new Intent(this, startActivity.class);
+        startActivity(i);
     }
 }

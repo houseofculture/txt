@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     static AssetManager assetManager;
     Scene curr;
     public static Player player;
+    public static String end;
     LinkedList<Scene> scenes = new LinkedList<>();
     TextView tw;
     Button b1,b2,b3;
@@ -59,20 +60,21 @@ public class MainActivity extends AppCompatActivity {
             if(player.hp>0) {
                 tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
                 curr = scenes.get(scenes.indexOf(curr) + 1);
+                curr.out(tw);
             }
             else
             {
-
+                end = vars[0];
                 Intent i = new Intent(this,DeathActivity.class);
                 startActivity(i);
             }
         }
         else
         {
+            end = vars[0];
             Intent i = new Intent(this,WinActivity.class);
             startActivity(i);
         }
-        curr.out(tw);
     }
     public void b2Click(View view)
     {
@@ -90,20 +92,21 @@ public class MainActivity extends AppCompatActivity {
             if(player.hp>0) {
                 tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
                 curr = scenes.get(scenes.indexOf(curr) + 1);
+                curr.out(tw);
             }
             else
             {
-
+                end = vars[0];
                 Intent i = new Intent(this,DeathActivity.class);
                 startActivity(i);
             }
         }
         else
         {
+            end = vars[0];
             Intent i = new Intent(this,WinActivity.class);
             startActivity(i);
         }
-        curr.out(tw);
     }
     public void b3Click(View view)
     {
@@ -121,21 +124,20 @@ public class MainActivity extends AppCompatActivity {
             if(player.hp>0) {
                 tw.setText(vars[0] + "\n" + "HP:" + player.hp + " DMG:" + player.dmg);
                 curr = scenes.get(scenes.indexOf(curr) + 1);
+                curr.out(tw);
             }
             else
             {
-
+                end = vars[0];
                 Intent i = new Intent(this,DeathActivity.class);
                 startActivity(i);
             }
         }
         else
         {
-            TextView tt = (TextView)findViewById(R.id.tw2);
-            tt.setText(vars[0]);
+            end = vars[0];
             Intent i = new Intent(this,WinActivity.class);
             startActivity(i);
         }
-        curr.out(tw);
     }
 }

@@ -14,4 +14,10 @@
         android:layout_height="wrap_content"
         android:id = "@+id/tw2"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ЗАНОВО"
+        android:onClick="winClick"
+        android:layout_below="@id/tw2"/>
 </RelativeLayout>
